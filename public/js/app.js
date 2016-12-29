@@ -136,6 +136,8 @@ function attachLoginDialogEventHandlers() {
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
     });
+    
+    document.getElementById('authPopUpDialog').style.display='block'
 }
 
 function addLogoutEventListener() {

@@ -35,13 +35,12 @@
     <div class="wholePage">
         <header>
            <div id="mainPageHeader">
-
                 <div id="cssmenu">
                     <ul>
                         <li><img id="dmuLogoTopBar" src="images/dmuLogo.png"></li>
 
                         <li><a href="#">Home</a></li>
-                        <li><a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();document.getElementById('authPopUpDialog').style.display='block'" style="width:auto;">Login</a></li>
+                        <li><a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();">Login</a></li>
                         <li><a href="html/about.html" onclick="openAboutPage();">About</a></li>
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn" id="UserNameLoggedInText" onclick="myFunction();addLogoutEventListener();">Username</a>
@@ -97,17 +96,17 @@
 
                             <button id="btnLogin" type="button">Login</button>
                             <input id="rememberMe" type="checkbox"> Remember me
-                            <a href="#" id="btnSignUp" style="float: right;">Sign up</a>
+                            <a href="#" id="btnSignUp">Sign up</a>
                         </div>
                         
                         <div id="authenticationMethodsContainer">
                             <br><br>
-                            <button id="facebookLoginBtn" type="button" style="background-color: #3b5998;">Facebook Sign in</button>
-                            <button id="googleLoginBtn" type="button" style="background-color: #D84B37;">Google Sign in</button>
+                            <button id="facebookLoginBtn" type="button">Facebook Sign in</button>
+                            <button id="googleLoginBtn" type="button">Google Sign in</button>
                         </div>
                     </div>
                     
-                    <div class="container" style="background-color:#f1f1f1">
+                    <div class="container">
                         <div id="forgottenPass">
                             <a href="#">Forgotten password?</a>
                         </div>

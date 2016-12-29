@@ -35,7 +35,28 @@
     <div class="wholePage">
         <header>
            <div id="mainPageHeader">
-                <table>
+
+                <div id="cssmenu">
+                    <ul>
+                        <li><img id="dmuLogoTopBar" src="images/dmuLogo.png"></li>
+
+
+                        <li><a href="#">Home</a></li>
+                        <li><a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();document.getElementById('authPopUpDialog').style.display='block'" style="width:auto;">Login</a></li>
+                        <li><a href="html/about.html" onclick="openAboutPage();">About</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn" id="UserNameLoggedInText" onclick="myFunction();addLogoutEventListener();">Dropdown</a>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="#">Settings</a>
+                                <a href="#" id="btnSignOut">Logout</a>
+                            </div>
+                        </li>
+                        <li id="userProfilePicLi" ><img id="userProfilePic" src="images/questionMark.png" alt="User Profile Picture"></li>
+                    </ul>
+                </div>
+                            
+                
+                <!--<table>
                     <td><img id="dmuLogoTopBar" src="images/dmuLogo.png"></td>
 
                     <td style="display: inline-block;">
@@ -53,7 +74,7 @@
                                 </div>
                             </div>
                         </td>
-                </table>
+                </table>-->
             </div>
 
 

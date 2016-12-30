@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script src=js/app.js></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Iv_Pqs3b5SzdIBEHMkARaSXkvj1NW-Y&callback=initMap"></script>
 
     <script>
         window.fbAsyncInit = function () {
@@ -25,6 +26,18 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         } (document, 'script', 'facebook-jssdk'));
+        
+        function initMap() {
+            var uluru = { lat: 52.62946729999999, lng: -1.1380354000000352 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
     </script>
 </head>
 
@@ -40,7 +53,7 @@
                         <li id="dmuLogoLi">
                             <img id="dmuLogoTopBar" src="images/dmuLogo.png">
                         </li>
-                        
+
 
                         <li id="mainHeaderOptions">
                                 <a href="#">Home</a>
@@ -140,10 +153,12 @@
 					·
 					<a href="#">Contact</a>
 				</p>
-				<p class="footer-company-name">Company Name &copy; 2015</p>
+				<p class="footer-company-name">Company Name &copy; 2016</p>
 			</div>
 			<div class="footer-center">
-				<div>
+				
+                <div id="map"></div>
+                <div>
 					<i class="fa fa-map-marker"></i>
 					<p><span>21 Revolution Street</span> Paris, France</p>
 				</div>

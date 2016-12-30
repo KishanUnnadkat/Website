@@ -8,6 +8,7 @@ body {
     min-width: 960px;
     font-family: "Lato", sans-serif;
     margin-top: -10px;
+    overflow-y: scroll;
 }
 .wholePage {
     transition: margin-left .5s;
@@ -62,20 +63,19 @@ li a, .dropbtn {
     text-decoration: none;
 }
 li a:hover, .dropdown:hover .dropbtn {
-    text-decoration: underline;
-    font-style: italic;
-    
+    color: #9d0e31;
 }
 li.dropdown {
     float: right;
     display: inline-block;
 }
 .dropdown-content {
+    margin-top: -1%;
     z-index: 1;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .dropdown-content a {
@@ -105,11 +105,16 @@ li.dropdown {
         width: 30%;
     }
 }
-@media (min-width:1075px) {
-    #dmuLogoLi {
-        width: 30%;
+
+@media (max-width:890px) {
+    li a, .dropbtn {
+        padding: 30px 40px;
     }
 }
+
+
+
+
 
 /* --------- NAV MENU DROPDOWN FINISHES HERE ---------- */
 
@@ -416,7 +421,6 @@ a:hover {
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
-
 	.footer-distributed{
 		font: bold 14px sans-serif;
 	}
@@ -433,8 +437,14 @@ a:hover {
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
-
 }
+#map {
+    height: 200px;
+    width:200px;
+    position: relative;
+}
+
+
 /* ---------- FOOTER STYLES END HERE ------------ */
 
 

@@ -5,6 +5,7 @@
 
 
 body {
+    min-width: 960px;
     font-family: "Lato", sans-serif;
     margin-top: -10px;
 }
@@ -17,7 +18,6 @@ body {
     right:0px;
     height:100%;
 }
-
 
 
 
@@ -47,8 +47,12 @@ ul {
     overflow: hidden;
     background-color: #292c2f
 }
-li {
-    float: left;
+#dmuLogoLi {
+    width:25%;
+    float:left;
+}
+#mainHeaderOptions {
+    float:left;
 }
 li a, .dropbtn {
     display: inline-block;
@@ -63,6 +67,7 @@ li a:hover, .dropdown:hover .dropbtn {
     
 }
 li.dropdown {
+    float: right;
     display: inline-block;
 }
 .dropdown-content {
@@ -90,11 +95,22 @@ li.dropdown {
     height: 50px;
     width: 50px;
     border-radius:50%;
+    vertical-align: middle;
 }
-#userProfilePicLi {
-    float:right;
-    padding: 14px;
+#UserNameLoggedInText {
+    padding: 30px;
 }
+@media (min-width:1075px) {
+    #dmuLogoLi {
+        width: 30%;
+    }
+}
+@media (min-width:1075px) {
+    #dmuLogoLi {
+        width: 30%;
+    }
+}
+
 /* --------- NAV MENU DROPDOWN FINISHES HERE ---------- */
 
 
@@ -434,16 +450,9 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
+
+
+
 
 
 /* Center the image and position the close button */
@@ -525,13 +534,25 @@ img.avatar {
     width: 100%;
     }
 }
-btnSignUp {
+/* Set a style for all buttons */
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+#btnSignUp {
     float:right;
 }
-facebookLoginBtn {
+#btnLogin {
+    background-color: #4CAF50;
+}
+#facebookLoginBtn {
     background-color: #3b5998;
 }
-googleLoginBtn {
+#googleLoginBtn {
     background-color: #D84B37
 }
 .container {

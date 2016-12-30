@@ -37,19 +37,26 @@
            <div id="mainPageHeader">
                 <div id="cssmenu">
                     <ul>
-                        <li><img id="dmuLogoTopBar" src="images/dmuLogo.png"></li>
+                        <li id="dmuLogoLi">
+                            <img id="dmuLogoTopBar" src="images/dmuLogo.png">
+                        </li>
+                        
 
-                        <li><a href="#">Home</a></li>
-                        <li><a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();">Login</a></li>
-                        <li><a href="html/about.html" onclick="openAboutPage();">About</a></li>
+                        <li id="mainHeaderOptions">
+                                <a href="#">Home</a>
+                                <a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();">Login</a>
+                                <a href="html/about.html" onclick="openAboutPage();">About</a>
+                        </li>
+                        
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn" id="UserNameLoggedInText" onclick="myFunction();addLogoutEventListener();">Username</a>
+                            <img id="userProfilePic" src="images/questionMark.png" alt="User Profile Picture">
                             <div class="dropdown-content" id="myDropdown">
                                 <a href="#">Settings</a>
                                 <a href="#" id="btnSignOut">Logout</a>
                             </div>
                         </li>
-                        <li id="userProfilePicLi" ><img id="userProfilePic" src="images/questionMark.png" alt="User Profile Picture"></li>
+                        
                     </ul>
                 </div>
             </div>

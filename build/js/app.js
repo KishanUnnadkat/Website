@@ -134,6 +134,8 @@ function attachLoginDialogEventHandlers() {
             return console.log(e.message);
         });
     });
+
+    document.getElementById('authPopUpDialog').style.display = 'block';
 }
 
 function addLogoutEventListener() {

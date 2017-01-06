@@ -7,7 +7,6 @@
 body {
     min-width: 960px;
     font-family: "Lato", sans-serif;
-    margin-top: -10px;
     overflow-y: scroll;
 }
 .wholePage {

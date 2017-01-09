@@ -40,10 +40,16 @@ gulp.task('minifyImages', function() {
 	.pipe(imagemin())
 	.pipe(gulp.dest('build/images'))
 });
+gulp.task('copyJS', function() {
+	return gulp.src('public/js/*.js')
+	.pipe(gulp.dest('build/js'));
+});
 
 
 
-gulp.task('default', ['babelifyJS', 'minifyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {
+//gulp.task('default', ['babelifyJS', 'minifyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {});
+
+gulp.task('default', ['copyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {
 });
 
 

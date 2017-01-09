@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script src=js/app.js></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Iv_Pqs3b5SzdIBEHMkARaSXkvj1NW-Y&callback=initMap"></script>
 
     <script>
         window.fbAsyncInit = function () {
@@ -27,6 +26,10 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         } (document, 'script', 'facebook-jssdk'));
+
+        window.onload = function() {
+            createPageFooter();
+        }
         
         function initMap() {
             var uluru = { lat: 52.62946729999999, lng: -1.1380354000000352 };
@@ -39,14 +42,13 @@
                 map: map
             });
         }
+
     </script>
 </head>
 
 
-
-
 <body>
-    <div class="wholePage">
+    <div id="wholePageID" class="wholePage">
         <header>
            <div id="mainPageHeader">
                 <div id="cssmenu">
@@ -136,11 +138,9 @@
             </div>
         </header>
 
-
-
-		<footer class="footer-distributed">
+		<!--<footer class="footer-distributed">
 			<div class="footer-left">
-				<h3>Company<span>logo</span></h3>
+				<h3>Company logo</h3>
 				<p class="footer-links">
 					<a href="#">Home</a>
 					·
@@ -156,8 +156,8 @@
 				</p>
 				<p class="footer-company-name">Company Name &copy; 2016</p>
 			</div>
-			<div class="footer-center">
-				
+			
+            <div class="footer-center">
                 <div id="map"></div>
                 <div>
 					<i class="fa fa-map-marker"></i>
@@ -180,7 +180,6 @@
 			</div>
 
 			<div class="footer-right">
-
 				<p class="footer-company-about">
 					<span>About the company</span>
 					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
@@ -193,11 +192,7 @@
 					<a href="#"><i class="fa fa-github"></i></a>
 				</div>
 			</div>
-		</footer>
-
-
-
-
+		</footer>-->
     </div>
 </body>
 

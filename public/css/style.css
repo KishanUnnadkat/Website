@@ -314,6 +314,7 @@ a:hover {
 	color:  #ffffff;
 	margin: 20px 0 12px;
 	padding: 0;
+    white-space: pre;
 }
 
 .footer-distributed .footer-links a{

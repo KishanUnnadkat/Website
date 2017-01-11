@@ -6,20 +6,25 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <title>Account Settings</title>
         <meta name="description" content="TODO - Page description goes here...">
+        <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+        <script src=../js/app.js></script>
+        
     </head>
 
     <body>
-        <div>
-            <a href="#">Delete User</a><br/>
-            <a href="#">Change profile picture</a><br/>
-            <a href="#">Change Email address</a><br/>
-            <a href="#">Change password</a><br/>
-            <a href="#">Delete User</a><br/>
-        </div>
-        
-        <div>
-            <iframe width="25%" height="25%" src="https://www.youtube.com/embed/Eqg_IqVeI5s" frameborder="0" allowfullscreen></iframe>
-            </iframe>
+        <div id="wholePageID">
+            <div>
+                <a id="deleteUserBtn" href="#" onclick="deleteUserFirebase();">Delete User</a><br/>
+                <a href="#">Change profile picture</a><br/>
+                <a href="#">Change Email address</a><br/>
+                <a href="#">Change password</a><br/>
+            </div>
+            
+            <div>
+                <iframe width="25%" height="25%" src="https://www.youtube.com/embed/Eqg_IqVeI5s" frameborder="0" allowfullscreen></iframe>
+                </iframe>
+            </div>
+
         </div>
 
     </body>

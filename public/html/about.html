@@ -10,9 +10,43 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
         <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
         <script src=../js/app.js></script>
+
+        <script>
+            window.onload = function() {
+                setupFirebase();
+            }
+        </script>
     </head>
     
     <body>
-        <h1>About page</h1>
+        <div id="wholePageID">
+            <header>
+                <div id="mainPageHeader">
+                    <div id="cssmenu">
+                        <ul>
+                            <li id="dmuLogoLi">
+                                <img id="dmuLogoTopBar" src="../ images/dmuLogo.png">
+                            </li>
+
+                            <li id="mainHeaderOptions">
+                                    <a href="#">Home</a>
+                                    <a href="javascript:void(0);" id="loginBtnInNavMenu" onclick="attachLoginDialogEventHandlers();">Login</a>
+                                    <a href="html/about.html" onclick="openAboutPage();">About</a>
+                            </li>
+                            
+                            <li class="dropdown">
+                                <a href="javascript:void(0)" class="dropbtn" id="UserNameLoggedInText" onclick="myFunction();addLogoutEventListener();">Username</a>
+                                <img id="userProfilePic" src="../images/questionMark.png" alt="User Profile Picture">
+                                <div class="dropdown-content" id="myDropdown">
+                                    <a href="html/settings.html">Settings</a>
+                                    <a href="#" id="btnSignOut">Logout</a>
+                                </div>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <h1>About page</h1>
+        </div>
     </body>
 </html>

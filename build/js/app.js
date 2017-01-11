@@ -1,4 +1,10 @@
-(function () {
+var rootRef = null;
+
+function setupFirebase() {
+
+    //createPageHeader();
+    createPageFooter();
+
     // Get the modal
     var modal = document.getElementById('id01');
 
@@ -7,16 +13,26 @@
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    }
+    };
 
     //Initialize firebase
     const config = {
         apiKey: "AIzaSyB3QwWMKARjXE0Qmqwpfu5IU67dgk0Jyek",
         authDomain: "website-3d233.firebaseapp.com",
         databaseURL: "https://website-3d233.firebaseio.com/",
-        storageBucket: "website-3d233.appspot.com",
+        storageBucket: "website-3d233.appspot.com/"
     };
     firebase.initializeApp(config);
+    rootRef = firebase.auth();
+
+    //Get Elements from database
+    const preObject = document.getElementById("object");
+
+    //Create database references
+    const dbRefObject = firebase.database().ref().child("object");
+
+    //Sync object changes
+    dbRefObject.on('value', snap => console.log(snap.val()));
 
     //Get all elements we wish to use
     const txtEmail = document.getElementById('txtEmail');
@@ -25,24 +41,22 @@
     const forgottenPass = document.getElementById('forgottenPass');
     const btnSignUp = document.getElementById('btnSignUp');
     const btnSignOut = document.getElementById('btnSignOut');
+    const deleteUserBtn = document.getElementById('deleteUserBtn');
 
     //Add a realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        if(firebaseUser) {
+        if (firebaseUser) {
             document.getElementById('UserNameLoggedInText').innerText = firebaseUser.displayName;
-            
+
             var image = document.getElementById("userProfilePic");
             image.src = firebaseUser.photoURL;
 
-            document.getElementById('authPopUpDialog').style.display='none';
+            document.getElementById('authPopUpDialog').style.display = 'none';
         } else {
             console.log("No user logged in");
         }
     });
-}());
-
-
-
+}
 
 //USERNAME DROPDOWN MENU JAVASCRIPT FUNCTIONS
 /* When the user clicks on the button, 
@@ -67,12 +81,9 @@ function attachLoginDialogEventHandlers() {
         const pass = txtPassword.value;
         const auth = firebase.auth();
 
-        try 
-        {
+        try {
             const promise = auth.signInWithEmailAndPassword(email, pass);
-        }
-        catch (err)
-        {
+        } catch (err) {
             console.log('Caught error');
         }
     });
@@ -83,7 +94,6 @@ function attachLoginDialogEventHandlers() {
         var provider = new firebase.auth.FacebookAuthProvider();
 
         provider.addScope('user_about_me');
-
         firebase.auth().signInWithPopup(provider).then(function (authData) {
             console.log(authData);
         }).catch(function (error) {
@@ -97,14 +107,14 @@ function attachLoginDialogEventHandlers() {
         console.log('Inside Google');
         var provider = new firebase.auth.GoogleAuthProvider();
 
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
             console.log(user);
             // ...
-            }).catch(function(error) {
+        }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -114,19 +124,19 @@ function attachLoginDialogEventHandlers() {
             var credential = error.credential;
             // ...
         });
-    })
+    });
 
-     //Add event listener for forgotten button
+    //Add event listener for forgotten button
     forgottenPass.addEventListener('click', e => {
         var user = firebase.auth().currentUser;
 
         user.sendEmailVerification().then(function () {
-            console.log('Send an email verification to - ' + user.email)
-            console.log("User name is " + user.displayName)
+            console.log('Send an email verification to - ' + user.email);
+            console.log("User name is " + user.displayName);
         }, function (error) {
             console.log(error);
         });
-    })
+    });
 
     //Add event listener for sign up button
     btnSignUp.addEventListener('click', e => {
@@ -136,40 +146,53 @@ function attachLoginDialogEventHandlers() {
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
     });
-    
-    document.getElementById('authPopUpDialog').style.display='block'
+
+    document.getElementById('authPopUpDialog').style.display = 'block';
 }
 
 function addLogoutEventListener() {
     //Add event listener for sign out button
     btnSignOut.addEventListener('click', e => {
-        firebase.auth().signOut().then(function() {
+        firebase.auth().signOut().then(function () {
             localStorage.clear();
             location.reload(); //reload page
-        }, function(error) {
+        }, function (error) {
             console.error('Sign Out Error', error);
         });
     });
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+function deleteUserFirebase() {
+    setupFirebase();
+    console.log(rootRef.currentUser());
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
+    //Add event listener for deleteUser button
+    // deleteUserBtn.addEventListener('click', e => {
+    //     var user = firebase.auth().currentUser;
+    //     user.delete().then(function() {
+    //         console.log("USER DELETED WORKED");
+    //     }, function(error) {
+    //         console.log("USER DELTED ERROR")
+    //     });
+    // });
 }
 
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+};
 
 function createPageFooter() {
-
     var tag = document.createElement("script");
     tag.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Iv_Pqs3b5SzdIBEHMkARaSXkvj1NW-Y&callback=initMap";
     document.getElementsByTagName("head")[0].appendChild(tag);
@@ -195,7 +218,7 @@ function createPageFooter() {
     footerLinksPara.className = "footer-links";
     footerCompanyName.className = "footer-company-name";
 
-    companyLogoText.innerText = "Company logo"
+    companyLogoText.innerText = "Company logo";
     footerLinkHome.innerText = "Home . ";
     footerLinkBlog.innerText = "Blog . ";
     footerLinkPricing.innerText = "Pricing . ";
@@ -214,7 +237,6 @@ function createPageFooter() {
     footerLinksPara.appendChild(footerLinkContact);
     footerLeftDiv.appendChild(footerLinksPara);
     footerLeftDiv.appendChild(footerCompanyName);
-
 
     //CREATE FOOTER CENTER
     var footerCenterDiv = document.createElement("DIV");
@@ -241,18 +263,18 @@ function createPageFooter() {
 
     var brElement = document.createElement("br");
     var span1 = document.createElement("span");
-    span1.innerText = "The Gateway"
+    span1.innerText = "The Gateway";
     span1.appendChild(brElement);
     var span2 = document.createElement("span");
-    span2.innerText = "Leicester"
+    span2.innerText = "Leicester";
     span2.appendChild(brElement);
     var span3 = document.createElement("span");
-    span3.innerText = "LE1 9BH"
+    span3.innerText = "LE1 9BH";
     span3.appendChild(brElement);
     addressPElement.appendChild(span1);
     addressPElement.appendChild(span2);
     addressPElement.appendChild(span3);
-    
+
     footerCenterDiv.appendChild(contactPhone);
     contactPhoneIElement.className = "fa fa-phone";
     contactPhone.appendChild(contactPhoneIElement);
@@ -260,15 +282,14 @@ function createPageFooter() {
     contactPhone.appendChild(phoneNumberPElement);
 
     footerCenterDiv.appendChild(contactEmail);
-    contactEmailIElement. className = "fa fa-envelope";
+    contactEmailIElement.className = "fa fa-envelope";
     contactEmail.appendChild(contactEmailIElement);
     contactEmail.appendChild(emailPElement);
-    
+
     var contactEmailAElement = document.createElement("a");
     contactEmailAElement.href = "mailto:support@company.com";
     contactEmailAElement.innerText = "support@company.com";
     emailPElement.appendChild(contactEmailAElement);
-
 
     //CREATE FOOTER RIGHT
     var footerRightDiv = document.createElement("DIV");
@@ -287,7 +308,6 @@ function createPageFooter() {
     var footerSocialMediaLinks = document.createElement("DIV");
     footerSocialMediaLinks.className = "footer-icons";
     footerRightDiv.appendChild(footerSocialMediaLinks);
-
 
     var facebookPictureAElement = document.createElement("a");
     var twitterPictureAElement = document.createElement("a");
@@ -318,6 +338,69 @@ function createPageFooter() {
     footerSocialMediaLinks.appendChild(gitHubPictureAElement);
 
     document.getElementById("wholePageID").appendChild(pageFooter);
+}
 
-        
+function createPageHeader() {
+    var cssMenuDiv = document.createElement("DIV");
+    cssMenuDiv.id = "cssmenu";
+    var headerList = document.createElement("ul");
+    cssMenuDiv.appendChild(headerList);
+    var dmuLogoListElement = document.createElement("li");
+    dmuLogoListElement.id = "dmuLogoLi";
+    headerList.appendChild(dmuLogoListElement);
+    var dmuLogoImg = document.createElement("img");
+    dmuLogoImg.src = "images/dmuLogo.png";
+    dmuLogoImg.id = "dmuLogoTopBar";
+    dmuLogoListElement.appendChild(dmuLogoImg);
+
+    var mainHeaderOptionsLi = document.createElement("li");
+    mainHeaderOptionsLi.id = "mainHeaderOptions";
+    var homeAElement = document.createElement("a");
+    homeAElement.innerText = "Home";
+    homeAElement.href = "#";
+    var loginAElement = document.createElement("a");
+    loginAElement.innerText = "Login";
+    loginAElement.href = "javascript:void(0);";
+    loginAElement.id = "loginBtnInNavMenu";
+    //loginAElement.onclick = "attachLoginDialogEventHandlers();";
+    var aboutAElement = document.createElement("a");
+    aboutAElement.innerText = "About";
+    aboutAElement.href = "html/about.html";
+    //aboutAElement.onclick(openAboutPage());
+    mainHeaderOptionsLi.appendChild(homeAElement);
+    mainHeaderOptionsLi.appendChild(loginAElement);
+    mainHeaderOptionsLi.appendChild(aboutAElement);
+    headerList.appendChild(mainHeaderOptionsLi);
+
+    var mainDropdownUser = document.createElement("li");
+    mainDropdownUser.className = "dropdown";
+    var usernameAElement = document.createElement("a");
+    usernameAElement.href = "javascript:void(0)";
+    usernameAElement.className = "dropBtn";
+    usernameAElement.id = "userNameLoggedInText";
+    usernameAElement.onclick = "myFunction();addLogoutEventListener();";
+    usernameAElement.innerText = "Username";
+    var userPictureImg = document.createElement("img");
+    userPictureImg.id = "userProfilePic";
+    userPictureImg.src = "images/questionMark.png";
+    userPictureImg.alt = "User Profile Picture";
+    var userDropdownDiv = document.createElement("DIV");
+    userDropdownDiv.className = "dropdown-content";
+    userDropdownDiv.id = "myDropdown";
+    var settingsAElement = document.createElement("a");
+    settingsAElement.href = "html/settings.html";
+    settingsAElement.innerText = "Settings";
+    var logoutAElement = document.createElement("a");
+    logoutAElement.href = "#";
+    logoutAElement.id = "btnSignOut";
+    logoutAElement.innerText = "Logout";
+
+    headerList.appendChild(mainDropdownUser);
+    mainDropdownUser.appendChild(usernameAElement);
+    mainDropdownUser.appendChild(userPictureImg);
+    mainDropdownUser.appendChild(userDropdownDiv);
+    userDropdownDiv.appendChild(settingsAElement);
+    userDropdownDiv.appendChild(logoutAElement);
+
+    document.getElementById("mainPageHeader").appendChild(cssMenuDiv);
 }

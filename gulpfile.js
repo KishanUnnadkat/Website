@@ -10,7 +10,7 @@ const imagemin = require('gulp-imagemin');
 gulp.task('babelifyJS', () => {
 	gulp.src('public/js/app.js')
 	.pipe(babel({
-		presets: ['es2015']
+		presets: ['es2016']
 	}))
 	.pipe(gulp.dest('build/js'));
 });
@@ -47,10 +47,9 @@ gulp.task('copyJS', function() {
 
 
 
-//gulp.task('default', ['babelifyJS', 'minifyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {});
+gulp.task('default', ['babelifyJS', 'minifyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {});
 
-gulp.task('default', ['copyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {
-});
+// gulp.task('default', ['copyJS', 'minifyCSS', 'minifyHTML', 'minifyIndexPage', 'minifyImages'], function() {});
 
 
 // Handle the error

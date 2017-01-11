@@ -3,13 +3,13 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <title>Homepage</title>
     <meta name="description" content="TODO - Page description goes here...">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    
     <script src=js/app.js></script>
-
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -28,9 +28,9 @@
         } (document, 'script', 'facebook-jssdk'));
 
         window.onload = function() {
-            createPageFooter();
+            setupFirebase();
         }
-        
+
         function initMap() {
             var uluru = { lat: 52.62946729999999, lng: -1.1380354000000352 };
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -42,8 +42,8 @@
                 map: map
             });
         }
-
     </script>
+    
 </head>
 
 
@@ -100,6 +100,12 @@
                     <span class="dot" onclick="currentSlide(2)"></span> 
                 </div>
             </div>
+
+
+            <div>
+                <pre id="object"></pre>
+            </div>
+
 
 
             <div id="authPopUpDialog" class="modal">
@@ -224,4 +230,5 @@
         dots[slideIndex - 1].className += " active";
     }
 </script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 </html>

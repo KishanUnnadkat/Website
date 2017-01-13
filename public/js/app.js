@@ -1,5 +1,3 @@
-var rootRef = null;
-
 function setupFirebase() {
 
     //createPageHeader();
@@ -23,16 +21,15 @@ function setupFirebase() {
         storageBucket: "website-3d233.appspot.com/",
     };
     firebase.initializeApp(config);
-    rootRef = firebase.auth();
 
-    //Get Elements from database
-    const preObject = document.getElementById("object");
+    // //Get Elements from database
+    // const preObject = document.getElementById("object");
 
-    //Create database references
-    const dbRefObject = firebase.database().ref().child("object");
+    // //Create database references
+    // const dbRefObject = firebase.database().ref().child("object");
 
-    //Sync object changes
-    dbRefObject.on('value', snap => console.log(snap.val()));
+    // //Sync object changes
+    // dbRefObject.on('value', snap => console.log(snap.val()));
 
     //Get all elements we wish to use
     const txtEmail = document.getElementById('txtEmail');
@@ -56,10 +53,6 @@ function setupFirebase() {
             console.log("No user logged in");
         }
     });
-
-
-
-
 } 
 
 
@@ -118,28 +111,7 @@ function attachLoginDialogEventHandlers() {
     });
 
     //Add event listener for google login button
-    googleLoginBtn.addEventListener('click', e => {
-        console.log('Inside Google');
-        var provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            console.log(user);
-            // ...
-            }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-        });
-    })
+    googleLoginBtn.addEventListener('click', signInWithGoogle);
 
      //Add event listener for forgotten button
     forgottenPass.addEventListener('click', e => {
@@ -153,18 +125,49 @@ function attachLoginDialogEventHandlers() {
         });
     })
 
+
+
+
     //Add event listener for sign up button
     btnSignUp.addEventListener('click', e => {
         const email = txtEmail.value;
         const pass = txtPassword.value;
-        const auth = firebase.auth();
-        const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
+
+        if(!email || !pass) {
+            return console.log('Email and Password required');
+        }
+
+        //Register User
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .catch(function(error) {
+                if (error.code === 'auth/email-already-in-use') {
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, pass);
+
+                    signInWithGoogle().then(function() {
+                        firebase.auth().currentUser.link(credential).then(function(user) {
+                            console.log("Account linking success", user);
+                        }, function(error) {
+                            console.log("Account linking error", error);
+                        });
+                    });
+                }
+            });
     });
-    
     document.getElementById('authPopUpDialog').style.display='block'
 }
 
+
+
+function signInWithGoogle() {
+    console.log('Inside Google');
+     var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+
+    return firebase.auth().signInWithPopup(provider).catch(function(error) {
+        console.log('Google sign in error', error);
+    });
+}
 
 
 function addLogoutEventListener() {

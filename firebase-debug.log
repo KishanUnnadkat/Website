@@ -727,3 +727,186 @@
 [info] Public Directory: build
 [info] 
 [info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:22:12 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:27:45 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:40:20 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:48:48 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[warn] !  Port 5000 is not available. Trying another port...
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5001
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:51:57 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:52:45 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:54:18 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:57:03 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 14:58:04 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 15:12:26 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 15:15:40 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 15:37:42 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v6.9.2
+[debug] Time:         Wed Jan 11 2017 15:42:43 GMT+0000 (GMT Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\kunnadkat\Desktop\Website
+[info] Public Directory: build
+[info] 
+[info] Server listening at: http://localhost:5000
